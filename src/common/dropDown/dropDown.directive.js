@@ -13,7 +13,6 @@
  *
  */
 
-
 const angular = require('angular');
 module.exports = angular.module('common.services')
     .directive('dropDown', dropDownDirective);

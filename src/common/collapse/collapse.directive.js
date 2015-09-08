@@ -1,6 +1,4 @@
 "use strict";
-
-
 require('./collapse.less');
 const angular = require('angular');
 module.exports = angular.module('common.services')

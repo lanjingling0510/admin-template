@@ -1,7 +1,9 @@
 require('./app.less');
 
 const angular = require('angular');
-
+require('../../node_modules/amazeui-custom/js/ui.datepicker.js');
+require('../../node_modules/amazeui-custom/js/ui.collapse.js');
+require('../../node_modules/amazeui-custom/js/ui.dropdown.js');
 require('../common/service.js');
 require('../login/login.js');
 require('../menu/menu.js');
