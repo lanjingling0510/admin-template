@@ -1,0 +1,59 @@
+<div class="menu show-menu">
+
+
+
+    <!--menu -->
+    <aside class="csm-menu">
+        <accordion close-others="true">
+            <accordion-group heading="首页">
+                <div><a class="menu-link">场馆介绍</a></div>
+                <div><a class="menu-link">主办方介绍</a></div>
+            </accordion-group>
+
+            <accordion-group heading="展会指南管理">
+                <div><a class="menu-link">展商信息</a></div>
+                <div><a class="menu-link">展会活动</a></div>
+                <div><a class="menu-link">展会分布</a></div>
+            </accordion-group>
+
+            <accordion-group heading="展区导航管理">
+                <div><a class="menu-link">展区管理</a></div>
+                <div><a class="menu-link">展商管理</a></div>
+            </accordion-group>
+        </accordion>
+
+
+        <div class="csm-menu-shape" id="morph-shape"
+             data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800"
+                 preserveAspectRatio="none">
+                <path d="M-7.312,0C-7.312,0,100,0,100,0C100,0,100,113.839,100,400C100,664.506,100,800,100,800C100,800,-7.312,800,-7.312,800C-7.312,800,-7.312,0,-7.312,0C-7.312,0,-7.312,0,-7.312,0"></path>
+                <desc>Created with Snap</desc>
+                <defs></defs>
+            </svg>
+        </div>
+
+        <button class="menu-close-button" id="close-button" ng-click="vm.closeMenu()">
+            <span class="am-icon-chevron-left"></span>
+            <span class="am-icon-chevron-left"></span>
+            <span class="am-icon-chevron-left"></span>
+        </button>
+    </aside>
+
+
+
+    <!-- close menu button-->
+    <div class="csm-menu-button" id="open-button" ng-click="vm.openMenu()">Open Menu</div>
+
+
+    <article class="csm-main">
+        <ui-view></ui-view>
+    </article>
+
+
+</div>
+
+
+
+
+

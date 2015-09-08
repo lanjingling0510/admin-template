@@ -1,0 +1,14 @@
+<div class="am-dimmer" style="display:none">
+    <div class="am-modal am-modal-confirm am-modal-out">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">{{texts.title }}</div>
+            <div class="am-modal-bd">
+                {{texts.body }}
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn"  ng-click="modal.hide()">{{texts.closeButton }}</span>
+                <span class="am-modal-btn" ng-click="modal.callback()" ng-show="!texts.noDismiss">{{texts.dismissButton }}</span>
+            </div>
+        </div>
+    </div>
+</div>

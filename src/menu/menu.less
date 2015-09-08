@@ -1,0 +1,98 @@
+.menu {
+  .csm-menu-button {
+    position: fixed;
+    z-index: 1000;
+    margin: 1em;
+    padding: 0;
+    width: 2.5em;
+    height: 2.25em;
+    border: none;
+    text-indent: 2.5em;
+    font-size: 1.5em;
+    color: transparent;
+    background: transparent;
+    top: -19px;
+    left: 0;
+
+    &:before {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      bottom: 0.5em;
+      left: 0.5em;
+      background: linear-gradient(rgb(5, 165, 214) 20%, transparent 20%, transparent 40%, rgb(5, 165, 214) 40%, rgb(5, 165, 214) 60%, transparent 60%, transparent 80%, rgb(5, 165, 214) 80%);
+      content: '';
+    }
+  }
+
+  .csm-menu {
+    position: absolute;
+    z-index: 1001;
+    width: 280px;
+    height: 100%;
+    font-size: 1.15em;
+    transform: translate3d(-280px, 0, 0);
+    transition: transform 0.4s;
+    padding: 3em 1em;
+
+    .csm-menu-shape {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      fill: #373a47;
+      z-index:-1;
+    }
+
+    .menu-close-button {
+      position: absolute;
+      right: 1em;
+      top: 1em;
+      overflow: hidden;
+      border: none;
+      z-index: 1001;
+      background: transparent;
+      color: #888;
+    }
+  }
+
+  .csm-main {
+    min-width:640px;
+    padding-left: 68px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: padding 0.4s;
+    display:flex;
+    flex-flow:column;
+  }
+
+}
+
+.menu.show-menu {
+  .csm-menu {
+    transform: translate3d(0, 0, 0);
+    .panel-body {
+      div {
+        padding: 0.5em 0;
+        .menu-link {
+          background-color: hsla(100, 100%, 99%, 0.85);
+          color: hsla(0, 0%, 0%, 0.8);
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .csm-main {
+    padding-left: 280px;
+  }
+}
+
+
