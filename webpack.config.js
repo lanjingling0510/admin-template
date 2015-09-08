@@ -23,7 +23,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'uglify!ng-annotate!babel' },
-            { test: /\.less$/, loader: 'style!css!autoprefixer!less'},
+            { test: /\.less$/, loader: 'style!css!autoprefixer-loader!less'},
             { test: /\.json$/, loader: 'json' },
             { test: /\.(png|jpg)$/, loader: 'url?limit=25000' },
             { test: /\.html$/, exclude: /node_modules/, loader: 'html!html-minify' },
