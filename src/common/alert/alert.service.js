@@ -5,7 +5,7 @@ module.exports = angular.module('common.services')
     .factory('AlertService', AlertService);
 
 /* @ngInject */
-function AlertService($rootScope, commonModal) {
+function AlertService($rootScope, commonModal, $timeout) {
     const scope = $rootScope.$new(true);
     let modal;
 
@@ -27,6 +27,7 @@ function AlertService($rootScope, commonModal) {
 
     function success(content) {
         scope.texts = {
+            icon: 'am-icon-check am-text-success',
             title: '成功',
             body: content,
             closeButton: '确定',
@@ -47,21 +48,25 @@ function AlertService($rootScope, commonModal) {
 
     function warning(content, callback = angular.noop) {
         scope.texts = {
+            icon: 'am-icon-exclamation am-text-danger',
             title: '警告',
             body: content,
-            closeButton: '确认',
-            dismissButton: '关闭',
-            noDismiss: true,
+            closeButton: '',
+            dismissButton: '确定',
+            noDismiss: false,
         };
         modal.callback = function () {
             modal.hide();
             callback();
         };
-        modal.show();
+        $timeout(() => {
+            modal.show();
+        }, 1);
     }
 
     function danger(content, callback) {
         scope.texts = {
+            icon: 'am-icon-exclamation am-text-danger',
             title: '危险',
             body: content,
             closeButton: '我了解',

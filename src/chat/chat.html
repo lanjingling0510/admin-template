@@ -1,0 +1,54 @@
+<!-- chat-->
+<article class="csm-chat">
+    <!-- chat header-->
+    <header>
+        <div class="am-fr csm-chat-user am-vertical-align">
+            <div class="am-vertical-align-middle">
+                <img class="user-avatar" src="./1.jpg" alt=""/>
+            </div>
+
+            <span class="am-btn user-name">{{vm.user.nickname}}</span>
+
+            <a class="am-btn" ng-click="vm.logout()">
+                退出
+            </a>
+        </div>
+    </header>
+
+    <!-- chat content-->
+    <section>
+        <a href="#" class="am-btn message-history-btn" ng-disabled="!vm.userList">
+            <span class="am-icon-arrow-up"></span>
+            更多聊天记录
+        </a>
+
+        <div class="message-wrap" ng-class="{right:msg._id==vm.user._id}" ng-repeat="msg in vm.msgList"
+             ng-switch="msg.type">
+            <div ng-switch-default>
+                <div class="message-title">【{{msg.nickname}}】 {{msg.date | date: 'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="message-content">{{msg.content}}</div>
+            </div>
+            <div ng-switch-when="welcome" class="am-text-center">
+                <div class="am-kai am-text-success">欢迎<span class="am-text-danger">{{msg.nickname}}</span>进入大厅</div>
+            </div>
+
+            <div ng-switch-when="goodbye" class="am-text-center">
+                <div class="am-kai am-text-danger"><span class="am-text-success">{{msg.nickname}}</span>离开大厅</div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- chat footer-->
+    <footer class="am-g am-padding-top">
+        <div class="am-u-sm-12 am-u-md-10">
+            <textarea id="chat-textarea" class="am-form-field am-radius" ng-model="vm.msg"
+                      ng-keydown="vm.keydown(vm.msg)"></textarea>
+        </div>
+        <div class="am-u-sm-12 am-u-md-2 am-padding-top">
+            <a class="am-btn am-btn-xl am-btn-danger am-radius chat-send-btn" ng-disabled="!vm.msg"
+               ng-click="vm.sendMessage(vm.msg)">发送</a>
+        </div>
+    </footer>
+</article>

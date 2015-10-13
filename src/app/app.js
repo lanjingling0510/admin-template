@@ -7,20 +7,25 @@ require('../../node_modules/amazeui-custom/js/ui.dropdown.js');
 require('../common/service.js');
 require('../login/login.js');
 require('../menu/menu.js');
-require('../home/home.js');
+//  require('../home/home.js');
+require('../chat/chat.js');
+require('../register/register.js');
+
 
 module.exports = angular.module('csm', [
     'ui.router',
     'angular-storage',
     'csm.login',
     'csm.menu',
-    'csm.home',
+    'csm.register',
+    //  'csm.home',
+    'csm.chat',
 ]).config(moduleConfig).run(moduleRun);
 
 /* @ngInject */
 function moduleConfig($urlRouterProvider, $locationProvider, RestangularProvider) {
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('v1/home');
+    $urlRouterProvider.otherwise('v1/chat');
     RestangularProvider.setBaseUrl('/apis');
     RestangularProvider.setRestangularFields({id: '_id'});
 }
@@ -37,3 +42,6 @@ function moduleRun($rootScope, $location, store) {
         }
     }
 }
+
+
+

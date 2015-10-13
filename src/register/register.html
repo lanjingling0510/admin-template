@@ -1,0 +1,17 @@
+<div class="register">
+    <div class="wrap am-form am-form-horizontal">
+        <div class="am-form-group">
+            <input class="am-form-field am-radius" placeholder="昵称" ng-model="vm.admin.nickname" type="text"/>
+        </div>
+
+        <div class="am-form-group">
+            <input class="am-form-field am-radius" placeholder="账号" ng-model="vm.admin.username" type="text"/>
+        </div>
+        <div class="am-form-group">
+            <input class="am-form-field am-radius" placeholder="密码" ng-model="vm.admin.password" type="password"/>
+        </div>
+        <a class="am-btn am-btn-primary  am-radius" ng-click="vm.registerUser(vm.admin)">注册</a>
+        <a class="am-btn am-radius" am-btn-link ui-sref="login">去登录</a>
+    </div>
+</div>
+

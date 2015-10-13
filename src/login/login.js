@@ -38,7 +38,7 @@ function LoginController($rootScope, store, AlertService, $state, Restangular) {
         }).then(function (profile) {
             store.set('auth.profile', profile);
             $rootScope.auth.profile = profile;
-            $state.go('v1.home');
+            $state.go('v1.chat');
         }).catch(function (err) {
             AlertService.warning(err.data);
         });
@@ -46,8 +46,8 @@ function LoginController($rootScope, store, AlertService, $state, Restangular) {
 
     function initController() {
         vm.admin = {
-            username: 'cyt',
-            password: '123456',
+            username: '',
+            password: '',
         };
     }
 }

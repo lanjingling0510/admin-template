@@ -19,7 +19,7 @@ function moduleConfig($stateProvider) {
 }
 
 /* @ngInject */
-function MenuController() {
+function MenuController($scope) {
     const vm = this;
     vm.openMenu = openMenu;
     vm.closeMenu = closeMenu;
@@ -29,6 +29,31 @@ function MenuController() {
     const path = svg.select('path');
     const steps = shape.getAttribute('data-morph-open').split(';');
     let isAnimating = false;
+
+
+    //  =============================
+    //  用户列表
+    //  =============================
+
+    $scope.$on('user:list', (e, list) => {
+        console.table(list);
+        vm.userList = list;
+        $scope.$digest();
+    });
+
+    $scope.$on('user:new', (e, user) => {
+        vm.userList = vm.userList || [];
+        vm.userList.push(user);
+        $scope.$digest();
+    });
+
+    $scope.$on('user:left', (e, user) => {
+        const index = vm.userList.findIndex(value => value._id === user._id);
+        if (index !== -1) {
+            vm.userList.splice(index, 1);
+            $scope.$digest();
+        }
+    });
 
 
     //  =============================
@@ -42,7 +67,7 @@ function MenuController() {
             return;
         }
         path.animate({'path': steps[pos]}, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function () {
-            pos++;
+            pos++;  // eslint-disable-line no-param-reassign
             nextStep(pos);
         });
     }

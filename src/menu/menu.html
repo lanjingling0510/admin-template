@@ -4,23 +4,23 @@
 
     <!--menu -->
     <aside class="csm-menu">
-        <accordion close-others="true">
+        <accordion close-others="false">
             <accordion-group heading="首页">
-                <div><a class="menu-link">场馆介绍</a></div>
-                <div><a class="menu-link">主办方介绍</a></div>
+                <div><a class="menu-link">聊天大厅</a></div>
+                <div><a class="menu-link">关于</a></div>
             </accordion-group>
 
-            <accordion-group heading="展会指南管理">
-                <div><a class="menu-link">展商信息</a></div>
-                <div><a class="menu-link">展会活动</a></div>
-                <div><a class="menu-link">展会分布</a></div>
-            </accordion-group>
-
-            <accordion-group heading="展区导航管理">
-                <div><a class="menu-link">展区管理</a></div>
-                <div><a class="menu-link">展商管理</a></div>
+            <accordion-group heading="在线用户" is-open="true">
+                <div ng-repeat="user in vm.userList"><a class="menu-link">
+                    <span class="am-icon-user am-text-success"></span>
+                    {{user.nickname}}
+                </a></div>
             </accordion-group>
         </accordion>
+
+
+
+
 
 
         <div class="csm-menu-shape" id="morph-shape"
@@ -46,9 +46,8 @@
     <div class="csm-menu-button" id="open-button" ng-click="vm.openMenu()">Open Menu</div>
 
 
-    <article class="csm-main">
-        <ui-view></ui-view>
-    </article>
+    <ui-view class="csm-main">
+    </ui-view>
 
 
 </div>

@@ -14,6 +14,7 @@ module.exports = {
             'angular-storage',
             'restangular',
             'ng-file-upload',
+            'angular-animate',
         ],
     },
     output: {
